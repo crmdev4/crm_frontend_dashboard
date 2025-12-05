@@ -1,0 +1,136 @@
+export interface Contact {
+    id: string;
+    name: string;
+    email: string;
+    phone: string;
+    company: string;
+    role: string;
+    status: string;
+    tags: string[];
+    lastActive: string;
+    avatar: string;
+}
+
+export const contactsData: Contact[] = [
+    {
+        id: '1',
+        name: 'Sarah Wilson',
+        email: 'sarah.wilson@example.com',
+        phone: '+1 (555) 123-4567',
+        company: 'TechFlow Inc.',
+        role: 'Product Manager',
+        status: 'Active',
+        tags: ['VIP', 'Enterprise'],
+        lastActive: '2023-10-25T10:30:00Z',
+        avatar: 'https://i.pravatar.cc/150?u=1',
+    },
+    {
+        id: '2',
+        name: 'Michael Chen',
+        email: 'm.chen@startup.io',
+        phone: '+1 (555) 987-6543',
+        company: 'StartupIO',
+        role: 'CTO',
+        status: 'Inactive',
+        tags: ['New', 'Potential'],
+        lastActive: '2023-10-20T14:15:00Z',
+        avatar: 'https://i.pravatar.cc/150?u=2',
+    },
+    {
+        id: '3',
+        name: 'Emma Rodriguez',
+        email: 'emma.r@designstudio.com',
+        phone: '+1 (555) 456-7890',
+        company: 'Creative Minds',
+        role: 'Art Director',
+        status: 'Lead',
+        tags: ['Design', 'Freelance'],
+        lastActive: '2023-10-26T09:00:00Z',
+        avatar: 'https://i.pravatar.cc/150?u=3',
+    },
+    {
+        id: '4',
+        name: 'James Thompson',
+        email: 'james.t@bigcorp.org',
+        phone: '+1 (555) 789-0123',
+        company: 'BigCorp',
+        role: 'Sales Director',
+        status: 'Active',
+        tags: ['Enterprise', 'High Value'],
+        lastActive: '2023-10-26T11:45:00Z',
+        avatar: 'https://i.pravatar.cc/150?u=4',
+    },
+    {
+        id: '5',
+        name: 'Lisa Wang',
+        email: 'lisa.w@innovate.net',
+        phone: '+1 (555) 234-5678',
+        company: 'InnovateNet',
+        role: 'CEO',
+        status: 'Active',
+        tags: ['VIP', 'Founder'],
+        lastActive: '2023-10-24T16:20:00Z',
+        avatar: 'https://i.pravatar.cc/150?u=5',
+    },
+    {
+        id: '6',
+        name: 'David Miller',
+        email: 'david.m@logistics.com',
+        phone: '+1 (555) 345-6789',
+        company: 'FastLogistics',
+        role: 'Operations Manager',
+        status: 'Inactive',
+        tags: ['Churn Risk'],
+        lastActive: '2023-09-15T08:00:00Z',
+        avatar: 'https://i.pravatar.cc/150?u=6',
+    },
+    {
+        id: '7',
+        name: 'Robert Taylor',
+        email: 'robert.t@finance.group',
+        phone: '+1 (555) 678-9012',
+        company: 'Global Finance',
+        role: 'Investment Analyst',
+        status: 'Lead',
+        tags: ['Finance', 'Warm Lead'],
+        lastActive: '2023-10-26T13:10:00Z',
+        avatar: 'https://i.pravatar.cc/150?u=7',
+    },
+    {
+        id: '8',
+        name: 'Jennifer Davis',
+        email: 'jen.davis@marketing.agency',
+        phone: '+1 (555) 890-1234',
+        company: 'Bright Marketing',
+        role: 'Marketing Head',
+        status: 'Active',
+        tags: ['Agency', 'Partner'],
+        lastActive: '2023-10-25T15:30:00Z',
+        avatar: 'https://i.pravatar.cc/150?u=8',
+    },
+    {
+        id: '9',
+        name: 'William Anderson',
+        email: 'will.anderson@dev.co',
+        phone: '+1 (555) 901-2345',
+        company: 'DevCo',
+        role: 'Lead Developer',
+        status: 'Active',
+        tags: ['Tech', 'Early Adopter'],
+        lastActive: '2023-10-26T10:00:00Z',
+        avatar: 'https://i.pravatar.cc/150?u=9',
+    },
+    {
+        id: '10',
+        name: 'Sophia Martinez',
+        email: 'sophia.m@retail.store',
+        phone: '+1 (555) 012-3456',
+        company: 'Fashion Retail',
+        role: 'Buyer',
+        status: 'Lead',
+        tags: ['Retail', 'Cold Lead'],
+        lastActive: '2023-10-10T11:20:00Z',
+        avatar: 'https://i.pravatar.cc/150?u=10',
+    },
+];
+
