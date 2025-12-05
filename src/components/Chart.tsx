@@ -20,7 +20,6 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
-  ResponsiveContainer,
 } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -66,7 +65,7 @@ export default function Chart({
   nameKey = "name",
   valueKey = "value",
 }: ChartProps) {
-  const renderChart = () => {
+  const renderChart = (): React.ReactElement => {
     switch (type) {
       case "area":
         return (
@@ -77,20 +76,20 @@ export default function Chart({
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              className="text-xs text-gray-500"
+              className="text-xs text-gray-500 dark:text-gray-400"
             />
             <YAxis
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              className="text-xs text-gray-500"
+              className="text-xs text-gray-500 dark:text-gray-400"
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent indicator="dot" />}
             />
             {dataKeys && dataKeys.length > 0 ? (
-              dataKeys.map((key, index) => (
+              dataKeys.map((key) => (
                 <Area
                   key={key}
                   dataKey={key}
@@ -122,20 +121,20 @@ export default function Chart({
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              className="text-xs text-gray-500"
+              className="text-xs text-gray-500 dark:text-gray-400"
             />
             <YAxis
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              className="text-xs text-gray-500"
+              className="text-xs text-gray-500 dark:text-gray-400"
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent indicator="dot" />}
             />
             {dataKeys && dataKeys.length > 0 ? (
-              dataKeys.map((key, index) => (
+              dataKeys.map((key) => (
                 <Bar
                   key={key}
                   dataKey={key}
@@ -162,20 +161,20 @@ export default function Chart({
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              className="text-xs text-gray-500"
+              className="text-xs text-gray-500 dark:text-gray-400"
             />
             <YAxis
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              className="text-xs text-gray-500"
+              className="text-xs text-gray-500 dark:text-gray-400"
             />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent indicator="line" />}
             />
             {dataKeys && dataKeys.length > 0 ? (
-              dataKeys.map((key, index) => (
+              dataKeys.map((key) => (
                 <Line
                   key={key}
                   type="monotone"
@@ -209,6 +208,7 @@ export default function Chart({
               outerRadius={80}
               fill="#8884d8"
               dataKey={valueKey}
+              nameKey={nameKey}
             >
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
@@ -219,7 +219,12 @@ export default function Chart({
         );
 
       default:
-        return null;
+        // Return a minimal valid chart component instead of null
+        return (
+          <AreaChart data={[]}>
+            <Area dataKey="value" />
+          </AreaChart>
+        );
     }
   };
 
@@ -236,7 +241,11 @@ export default function Chart({
         </CardHeader>
       )}
       <CardContent>
-        <ChartContainer config={config} className={cn("w-full", type === "pie" ? "h-[300px]" : "")}>
+        <ChartContainer 
+          config={config} 
+          className={cn("w-full", type === "pie" ? "h-[300px]" : "")}
+          style={{ height: type === "pie" ? "300px" : `${height}px` }}
+        >
           {renderChart()}
         </ChartContainer>
       </CardContent>
