@@ -18,7 +18,7 @@ interface Chat {
   unread: number;
   status: "online" | "offline" | "away";
   tags: string[];
-  chatFrom: string;
+  channel: string;
 }
 
 const MOCK_CHATS: Chat[] = [
@@ -31,7 +31,7 @@ const MOCK_CHATS: Chat[] = [
     unread: 2,
     status: "online",
     tags: ["Lead"],
-    chatFrom: "whatsapp",
+    channel: "whatsapp",
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ const MOCK_CHATS: Chat[] = [
     unread: 0,
     status: "offline",
     tags: ["Customer"],
-    chatFrom: "telegram",
+    channel: "telegram",
   },
   {
     id: 3,
@@ -53,7 +53,7 @@ const MOCK_CHATS: Chat[] = [
     unread: 0,
     status: "online",
     tags: ["Support"],
-    chatFrom: "facebook",
+    channel: "facebook",
   },
   {
     id: 4,
@@ -64,7 +64,7 @@ const MOCK_CHATS: Chat[] = [
     unread: 1,
     status: "away",
     tags: ["VIP"],
-    chatFrom: "instagram",
+    channel: "instagram",
   },
   {
     id: 5,
@@ -75,7 +75,7 @@ const MOCK_CHATS: Chat[] = [
     unread: 0,
     status: "offline",
     tags: ["Billing"],
-    chatFrom: "whatsapp",
+    channel: "whatsapp",
   },
 ];
 
@@ -182,8 +182,8 @@ export default function ChatList({
                       chat.status === "online"
                         ? "bg-green-500"
                         : chat.status === "away"
-                          ? "bg-yellow-500"
-                          : "bg-gray-400"
+                        ? "bg-yellow-500"
+                        : "bg-gray-400"
                     )}
                   />
                 </div>
@@ -200,7 +200,7 @@ export default function ChatList({
                       {chat.name}
                     </span>
                     <div className="flex items-center gap-1.5">
-                      {getChannelIcon(chat.chatFrom)}
+                      {getChannelIcon(chat.channel)}
                       <span
                         className={cn(
                           "text-xs whitespace-nowrap",
